@@ -180,6 +180,8 @@ _response_for_200 = api_client.OpenApiResponse(
     content={
         'application/json': api_client.MediaType(
             schema=SchemaFor200ResponseBodyApplicationJson),
+         'text/html; charset=UTF-8': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
     },
 )
 _status_code_to_response = {
