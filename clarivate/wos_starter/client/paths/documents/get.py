@@ -188,7 +188,7 @@ _status_code_to_response = {
     '200': _response_for_200,
 }
 _all_accept_content_types = (
-    'application/json',
+     'text/html; charset=UTF-8',
 )
 
 
