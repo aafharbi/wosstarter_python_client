@@ -27,7 +27,7 @@ from urllib.parse import urlparse, quote
 from urllib3.fields import RequestField as RequestFieldBase
 
 import frozendict
-
+import json 
 from clarivate.wos_starter.client import rest
 from clarivate.wos_starter.client.configuration import Configuration
 from clarivate.wos_starter.client.exceptions import ApiTypeError, ApiValueError
@@ -926,10 +926,9 @@ class OpenApiResponse(JSONDetector):
 
         if self.content is not None:
             if content_type not in self.content:
-                raise ApiValueError(
-                    f"Invalid content_type returned. Content_type='{content_type}' was returned "
-                    f"when only {str(set(self.content))} are defined for status_code={str(response.status)}"
-                )
+                
+                  response['content_type'] = 'application/json'
+                  json.dumps(response)
             body_schema = self.content[content_type].schema
             if body_schema is None:
                 # some specs do not define response content media type schemas
