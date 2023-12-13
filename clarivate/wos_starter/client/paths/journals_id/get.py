@@ -79,9 +79,12 @@ _status_code_to_response = {
 }
 _all_accept_content_types = (
     'application/json',
-    'text/html',
 )
-
+_status_code_to_response[200] = api_client.ApiResponse(
+    status=200,
+    content_type='text/html',
+    response_type=CustomResponseType,
+)
 
 class BaseApi(api_client.Api):
     @typing.overload
