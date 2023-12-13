@@ -79,6 +79,7 @@ _status_code_to_response = {
 }
 _all_accept_content_types = (
     'application/json',
+    'text/html',
 )
 
 
